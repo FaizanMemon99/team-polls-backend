@@ -27,14 +27,20 @@ export function setupWebSocket(server: HTTPServer) {
   });
 }
 
-export function broadcastToPoll(pollId: string, data: any) {
+export function broadcastToPoll(pollId: string, data: { tally: any; expiresAt: string }) {
   const sockets = socketMap.get(pollId);
   if (!sockets) return;
 
-  const json = JSON.stringify(data);
+  const json = JSON.stringify({
+    pollId,
+    tally: data.tally,
+    expiresAt: data.expiresAt,
+  });
+
   for (const ws of sockets) {
     if (ws.readyState === ws.OPEN) {
       ws.send(json);
     }
   }
 }
+
