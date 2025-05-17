@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = env("prisma+postgres://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiZDg0YWM3OGUtMjA3NS00Zjg2LTkxMDItNWUzOWU4YmIwNzY2IiwidGVuYW50X2lkIjoiYmJmZDM1ZjYwNGFkOGFhZDQwNmFkZTA2NTQzZWZiNjEwZjM3NzYyYTQxZGVhODViZmE3MjhmNWJjZDc4YTgxOSIsImludGVybmFsX3NlY3JldCI6Ijk0MTYzNTVkLThlZTgtNDVlMC1hNTNjLTYyZTU4OWU5NWYzNCJ9.GtSvl6l4kiC_ovRQ5sImIrRCFjh3TbDqr73OvkINDUc")
 }
 
 model Poll {
