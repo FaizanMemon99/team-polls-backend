@@ -52,8 +52,11 @@ if (poll) {
     return acc;
   }, {} as Record<string, number>);
 
-  broadcastToPoll(pollId, { pollId, tally });
-}
+broadcastToPoll(pollId, {
+  pollId, // ✅ now allowed
+  tally,
+  expiresAt: poll.expiresAt.toISOString(),
+});}
     res.json({ message: 'Vote recorded' });
   } catch {
     res.status(409).json({ error: 'User already voted' });
