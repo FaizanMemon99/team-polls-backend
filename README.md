@@ -138,3 +138,27 @@ The query took 300.5655280000001ms.
 - [Subscribe to our YouTube channel](https://pris.ly/youtube?utm_source=github&utm_medium=prisma_examples&utm_content=next_steps_section) for live demos and video tutorials.
 - [Follow us on X](https://pris.ly/x?utm_source=github&utm_medium=prisma_examples&utm_content=next_steps_section) for the latest updates.
 - Report issues or ask [questions on GitHub](https://pris.ly/github?utm_source=github&utm_medium=prisma_examples&utm_content=next_steps_section).
+
+
+# CURL For the API's:
+
+curl --location --request POST '{{BASE_URL}}/auth/anon'
+curl --location '{{BASE_URL}}/poll' \
+--header 'Content-Type: application/json' \
+--data '{
+    "question": "Best JS framework?",
+    "options": [
+        "React",
+        "Vue",
+        "Angular"
+    ],
+    "expiresAt": "2025-12-31T23:59:59Z"
+}'
+curl --location '{{BASE_URL}}/poll/cmas0j8m20000yi0ucumnvy1k/vote' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyXzE3NDc0NzgxMzQzOTMiLCJpYXQiOjE3NDc0NzgxMzQsImV4cCI6MTc0NzQ4MTczNH0.fJ1EDcuwVMM8H1oxrCfhzdRZFJW38QJkoWThZCahoaI' \
+--data '{
+    "option": "React"
+}'
+curl --location '{{BASE_URL}}/poll/cmas0j8m20000yi0ucumnvy1k'
+wss://{{BASE_URL}}/poll/cmas0j8m20000yi0ucumnvy1k
